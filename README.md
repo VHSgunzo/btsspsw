@@ -4,7 +4,7 @@ Bluetooth Secure Simple Pairing (SSP) Switcher
 ## Description
 btsspsw is a service that automatically switches the Bluetooth Secure Simple Pairing (SSP) mode based on the device discovery state. When discovery is enabled, SSP is turned on to ensure secure pairing of new devices. When discovery is disabled, SSP is turned off.
 
-This switcher is needed to solve connection issues with certain Bluetooth devices, particularly Chinese gamepads (DualShock 4 replicas, etc.) that may have problems with automatic reconnection when SSP is enabled.
+This switcher is needed to solve connection issues with certain Bluetooth devices, particularly gamepads (DualShock 4, etc.) that may have problems with automatic reconnection when SSP is enabled.
 
 ## Dependencies
 - bluez
