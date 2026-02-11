@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+set -e
+
+info_msg() {
+    if [ "$QUIET_MODE" != 1 ]
+        then echo -e "[ INFO ][$(date +"%Y.%m.%d %T")]: $@" 1>&2
+    fi
+}
+
+err_msg() { echo -e "[ ERROR ][$(date +"%Y.%m.%d %T")]: $@" 1>&2 ; }
+
+if [ "$(id -u)" -ne 0 ]
+    then
+        err_msg "This script must be run as root!"
+        exit 1
+fi
+
+info_msg "Initializing Bluetooth SSP Switcher..."
+sleep 5
+while true
+    do
+        if bluetoothctl show | grep -q 'Discovering: yes'
+            then
+                if [ "$ssp_state" != "on" ]
+                    then
+                        info_msg "Discovering enabled. Turning SSP ON..."
+                        bluetoothctl mgmt.ssp on
+                        ssp_state="on"
+                fi
+        else
+            if [ "$ssp_state" != "off" ]
+                then
+                    info_msg "Discovering disabled. Turning SSP OFF..."
+                    bluetoothctl mgmt.ssp off
+                    ssp_state="off"
+            fi
+        fi
+        sleep 2
+done

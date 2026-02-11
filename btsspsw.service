@@ -1,0 +1,12 @@
+[Unit]
+Description=Bluetooth Secure Simple Pairing (SSP) Switcher
+Requires=bluetooth.service
+After=bluetooth.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/btsspsw
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
