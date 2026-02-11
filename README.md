@@ -34,6 +34,13 @@ This switcher is needed to solve connection issues with certain Bluetooth device
 sudo ./install.sh
 ```
 
+### Installation from AUR
+You can install the package from AUR:
+```bash
+yay -Sy btsspsw-bin
+sudo systemctl enable --now btsspsw
+```
+
 ## Removal
 
 ### Manual removal

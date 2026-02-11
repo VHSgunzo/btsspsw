@@ -34,6 +34,13 @@ btsspsw - это сервис для автоматического перекл
 sudo ./install.sh
 ```
 
+### Установка из AUR
+Вы можете установить пакет из AUR:
+```bash
+yay -Sy btsspsw-bin
+sudo systemctl enable --now btsspsw
+```
+
 ## Удаление
 
 ### Ручное удаление
