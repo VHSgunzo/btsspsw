@@ -15,8 +15,17 @@ if [ "$(id -u)" -ne 0 ]
         exit 1
 fi
 
+if ! command -v bluetoothctl >/dev/null
+    then
+        err_msg "bluetoothctl not found!"
+        exit 1
+fi
+
 info_msg "Initializing Bluetooth SSP Switcher..."
-sleep 5
+while ! bluetoothctl show | grep -q 'PowerState: on'
+    do sleep 1
+done
+
 while true
     do
         if bluetoothctl show | grep -q 'Discovering: yes'

@@ -14,51 +14,51 @@ btsspsw - это сервис для автоматического перекл
 
 ### Ручная установка
 1. Скопируйте исполняемый файл в системный каталог:
-   ```bash
+   ```
    sudo install -Dm755 btsspsw /usr/bin/btsspsw
    ```
 
 2. Скопируйте файл сервиса systemd:
-   ```bash
+   ```
    sudo install -Dm644 btsspsw.service /etc/systemd/system/btsspsw.service
    ```
 
 3. Перезагрузите конфигурацию systemd и включите сервис:
-   ```bash
+   ```
    sudo systemctl daemon-reload
    sudo systemctl enable --now btsspsw
    ```
 
 ### Использование скрипта установки
-```bash
+```
 sudo ./install.sh
 ```
 
 ### Установка из AUR
-Вы можете установить пакет из AUR:
-```bash
+Вы можете установить пакет [btsspsw-bin](https://aur.archlinux.org/packages/btsspsw-bin) из AUR:
+```
 yay -Sy btsspsw-bin
-sudo systemctl enable --now btsspsw
 ```
 
 ## Удаление
 
 ### Ручное удаление
 1. Остановите и отключите сервис:
-   ```bash
+   ```
    sudo systemctl disable --now btsspsw
    ```
 
 2. Удалите файлы:
-   ```bash
+   ```
    sudo rm -f /usr/bin/btsspsw /etc/systemd/system/btsspsw.service
    ```
 
 3. Перезагрузите конфигурацию systemd:
-   ```bash
+   ```
    sudo systemctl daemon-reload
    ```
 
 ### Использование скрипта удаления
-```bash
+```
 sudo ./uninstall.sh
+```

@@ -14,51 +14,51 @@ This switcher is needed to solve connection issues with certain Bluetooth device
 
 ### Manual installation
 1. Copy the executable file to the system directory:
-   ```bash
+   ```
    sudo install -Dm755 btsspsw /usr/bin/btsspsw
    ```
 
 2. Copy the systemd service file:
-   ```bash
+   ```
    sudo install -Dm644 btsspsw.service /etc/systemd/system/btsspsw.service
    ```
 
 3. Reload systemd configuration and enable the service:
-   ```bash
+   ```
    sudo systemctl daemon-reload
    sudo systemctl enable --now btsspsw
    ```
 
 ### Using the installation script
-```bash
+```
 sudo ./install.sh
 ```
 
 ### Installation from AUR
-You can install the package from AUR:
-```bash
+You can install the package [btsspsw-bin](https://aur.archlinux.org/packages/btsspsw-bin) from AUR:
+```
 yay -Sy btsspsw-bin
-sudo systemctl enable --now btsspsw
 ```
 
 ## Removal
 
 ### Manual removal
 1. Stop and disable the service:
-   ```bash
+   ```
    sudo systemctl disable --now btsspsw
    ```
 
 2. Remove the files:
-   ```bash
+   ```
    sudo rm -f /usr/bin/btsspsw /etc/systemd/system/btsspsw.service
    ```
 
 3. Reload systemd configuration:
-   ```bash
+   ```
    sudo systemctl daemon-reload
    ```
 
 ### Using the uninstall script
-```bash
+```
 sudo ./uninstall.sh
+```
