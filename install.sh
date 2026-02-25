@@ -6,7 +6,10 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-install -Dm755 btsspsw /usr/bin/btsspsw
-install -Dm644 btsspsw.service /etc/systemd/system/btsspsw.service
+install -v -Dm755 btsspsw /usr/bin/btsspsw
+install -v -Dm644 btsspsw.service /etc/systemd/system/btsspsw.service
 systemctl daemon-reload
-systemctl enable --now btsspsw
+if systemctl is-active --quiet btsspsw
+    then systemctl restart btsspsw -v
+    else systemctl enable --now btsspsw -v
+fi

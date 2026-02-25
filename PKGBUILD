@@ -1,6 +1,6 @@
 # Maintainer: VHSgunzo <vhsgrnz@gmail.com>
 pkgname='btsspsw'
-pkgver='1.1'
+pkgver='1.2'
 pkgrel='1'
 pkgdesc='Bluetooth Secure Simple Pairing (SSP) Switcher'
 arch=('any')

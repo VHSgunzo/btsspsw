@@ -22,13 +22,13 @@ if ! command -v bluetoothctl >/dev/null
 fi
 
 info_msg "Initializing Bluetooth SSP Switcher..."
-while ! bluetoothctl show | grep -q 'PowerState: on'
+while ! echo 'show' | bluetoothctl | grep -q 'PowerState: on'
     do sleep 1
 done
 
 while true
     do
-        if bluetoothctl show | grep -q 'Discovering: yes'
+        if echo 'show' | bluetoothctl | grep -q 'Discovering: yes'
             then
                 if [ "$ssp_state" != "on" ]
                     then

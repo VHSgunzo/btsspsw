@@ -6,6 +6,6 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-systemctl disable --now btsspsw
-rm -f /usr/bin/btsspsw /etc/systemd/system/btsspsw.service
+systemctl disable --now btsspsw -v
+rm -vf /usr/bin/btsspsw /etc/systemd/system/btsspsw.service
 systemctl daemon-reload
